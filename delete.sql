@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS developers, skills, companies, customers, projects, developers_skills, developers_projects CASCADE
