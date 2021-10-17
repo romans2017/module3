@@ -1,6 +1,5 @@
-CREATE OR REPLACE FUNCTION minimalcost() RETURNS projects
-LANGUAGE SQL
-AS $$
+CREATE OR REPLACE VIEW minimalcost
+AS 
 	SELECT
 		projects.*
 	FROM projects
@@ -9,8 +8,6 @@ AS $$
 			MIN(projects.cost) AS min_cost
 		FROM projects) AS min_cost_table
 	ON projects.cost = min_cost_table.min_cost
-	ORDER BY projects.id
-	LIMIT 1
-$$;
+	ORDER BY projects.id;
 
-SELECT * FROM minimalcost();
+SELECT * FROM minimalcost;
